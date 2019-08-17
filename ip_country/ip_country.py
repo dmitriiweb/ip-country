@@ -4,8 +4,9 @@ from typing import Tuple, List, Dict
 import pandas as pd
 
 
-def ip_country(db_path: str, ips: Tuple) -> List[Dict]:
-    df = get_df(db_path)
+class IPCountry:
+    def __init__(self, db_path: str, ips: str):
+        self.df = get_df(db_path)
 
 
 def get_df(path_to_csv: str) -> pd.core.frame.DataFrame:

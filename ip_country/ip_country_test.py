@@ -1,15 +1,14 @@
 import unittest
 
-from ip_country import ip_country, get_df
+from ip_country import IPCountry, get_df
 
 DB_PATH = '/home/di/Downloads/ips.csv'
+IP = '13.35.137.123'
 
 
 class TestIPCountry(unittest.TestCase):
-    def test_ip_country(self):
-        ip = '13.35.137.123'
-        res = ip_country(DB_PATH, (ip,))
-        self.assertEqual(res[0]['Country'], 'Australia')
+    def setUp(self):
+        self.ic = IPCountry(DB_PATH, (IP,))
 
     def test_get_df(self):
         df = get_df(DB_PATH)

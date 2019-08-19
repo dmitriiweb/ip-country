@@ -1,11 +1,11 @@
 from setuptools import setup
 
-with open('README.md') as readme:
+with open('README.rst') as readme:
     r = str(readme.read())
 
 setup(
     name='ip_country',
-    version='1.0.1',
+    version='1.0.0',
     packages=['ip_country'],
     url='https://github.com/dmitriiweb/ip-country',
     license='MIT',
@@ -16,11 +16,11 @@ setup(
     install_requires=[
         'pandas>=0.25.0',
     ],
-    classifiers=(
+    classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3.6',
-    ),
+    ],
 )

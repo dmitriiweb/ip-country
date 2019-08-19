@@ -1,1 +1,1 @@
-from .ip_country import ip_country
+from .ip_country import IPCountry

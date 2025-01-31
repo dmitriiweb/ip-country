@@ -14,13 +14,17 @@ class IPCountry:
         res_dict = dict()
         try:
             ip_int = int(ipaddress.IPv4Address(ip))
+            print(f'ip int: {ip_int}')
         except Exception as e:
             ip_int = None
             err = str(e)
         if ip_int is not None:
             res = self.df[(self.df.ip_to >= ip_int) & (self.df.ip_from <= ip_int)]
             res = res[['country_code', 'country_name', 'region_name', 'city_name']]
-            res_dict = res.to_dict('record')[0]
+            if len(res) == 0:
+                err = 'No data found'
+            else:
+                res_dict = res.to_dict('list')
         res_dict['ip'] = ip
         res_dict['error'] = err
         return res_dict
